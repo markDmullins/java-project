@@ -8,6 +8,7 @@
 
   <path id="class.path">
     <pathelement location="./lib/junit-4.12.jar" />
+    <pathelement location="./lib/hamcrest-core-1.3.jar" />    
     <pathelement location="${build.dir}" />
   </path>
 
@@ -27,14 +28,14 @@
     </javac>
   </target>
 
-  <target name="test" depends="clean, makedir, compile">
+   <target name="test" depends="clean, makedir, compile">
     <junit printsummary="yes" fork="true">
       <classpath refid="class.path" />
       <test name="RectangleTest" todir="${report.dir}" outfile="result">
         <formatter type="xml" />
       </test>
     </junit>
-  </target>
+  </target> 
 
   <target name="main" depends="test">
     <description>Main target</description>
