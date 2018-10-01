@@ -45,9 +45,9 @@ pipeline {
       }
     }
 	
-	stage ('Test on CENTOS') {
+	stage ('Run on CENTOS') {
     agent {
-      docker { image 'fabric8/java-centos-openjdk8-jdk:1.4.0'} 
+     label CentOS
     }
     steps {
       sh "wget http://kramins1.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
@@ -55,7 +55,7 @@ pipeline {
     }
 	}
 
-  stage ('test on Debian') {
+  stage ('Run on Debian') {
     agent {
       docker { image 'openjdk:8u121-jre'} 
     }
