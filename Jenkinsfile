@@ -47,7 +47,7 @@ pipeline {
 	
 	stage ('Run on CENTOS') {
     agent {
-     label CentOS
+     label 'CentOS'
     }
     steps {
       sh "wget http://kramins1.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
